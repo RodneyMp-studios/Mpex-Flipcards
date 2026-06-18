@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>MpRodney-Studio Portfolio</title>
+<title>MpRodney-Studio</title>
 
 <style>
 body {
@@ -13,77 +13,57 @@ body {
     overflow-x: hidden;
 }
 
-/* ================= INTRO ================= */
-#intro {
+/* ================= BACKGROUND OFFICE ================= */
+.office {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: #020617;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    animation: fadeOut 3s forwards;
-    animation-delay: 2.5s;
+    background: radial-gradient(circle at top, #0b1220, #020617);
+    z-index: -2;
 }
 
-.logo {
-    font-size: 40px;
-    font-weight: bold;
-    color: #38bdf8;
-    animation: pulse 1.5s infinite;
+/* floating light effect */
+.office::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(56,189,248,0.08), transparent 60%);
+    animation: float 8s infinite linear;
 }
 
-.loader {
-    margin-top: 20px;
-    width: 60px;
-    height: 60px;
-    border: 5px solid #1e293b;
-    border-top: 5px solid #38bdf8;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-    50% { transform: scale(1.1); }
-}
-
-@keyframes fadeOut {
-    to { opacity: 0; visibility: hidden; }
-}
-
-/* ================= BACKGROUND ================= */
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+@keyframes float {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-100px,50px); }
+    100% { transform: translate(0,0); }
 }
 
 /* ================= HEADER ================= */
 header {
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
 }
 
-.studio {
-    font-size: 40px;
+/* 3D STUDIO TEXT */
+.studio-title {
+    font-size: 45px;
     font-weight: bold;
-    background: linear-gradient(90deg, #00f5ff, #a855f7, #ff3d81, #00f5ff);
-    background-size: 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: move 6s linear infinite;
+    color: #38bdf8;
+    text-shadow: 1px 1px 0 #0ea5e9,
+                 2px 2px 0 #0284c7,
+                 3px 3px 10px rgba(0,0,0,0.5);
+    transform: perspective(500px) rotateX(10deg);
 }
 
-@keyframes move {
-    0% {background-position:0%;}
-    100% {background-position:300%;}
+/* LOGO */
+.logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: url('https://cdn-icons-png.flaticon.com/512/1055/1055687.png');
+    background-size: cover;
+    margin: auto;
+    border: 3px solid #38bdf8;
 }
 
 /* ================= LAYOUT ================= */
@@ -96,15 +76,14 @@ header {
 h2 {
     border-left: 5px solid #38bdf8;
     padding-left: 10px;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
-/* ================= GRID ================= */
+/* ================= PROJECT GRID ================= */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 15px;
-    margin-top: 15px;
 }
 
 .card {
@@ -113,8 +92,7 @@ h2 {
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.1);
     transition: 0.3s;
-    text-decoration: none;
-    color: white;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -124,20 +102,52 @@ h2 {
 
 .card img {
     width: 100%;
-    height: 180px;
+    height: 160px;
     object-fit: cover;
 }
 
 .card p {
     padding: 10px;
-    font-size: 14px;
+    color: #cbd5e1;
+}
+
+/* ================= MODAL PREVIEW ================= */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #111827;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.modal img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    color: red;
 }
 
 /* ================= CONTACT ================= */
 .contact {
     background: rgba(255,255,255,0.05);
-    padding: 20px;
-    border-radius: 12px;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 /* ================= FORM ================= */
@@ -145,7 +155,6 @@ form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
 }
 
 input, textarea {
@@ -163,33 +172,23 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background: #0ea5e9;
-}
-
 /* ================= FOOTER ================= */
 footer {
     text-align: center;
     padding: 30px;
     color: #64748b;
-    margin-top: 50px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
-<div id="intro">
-    <div class="logo">MpRodney-Studio</div>
-    <div class="loader"></div>
-</div>
-
 <!-- BACKGROUND -->
-<canvas id="bg"></canvas>
+<div class="office"></div>
 
 <header>
-    <div class="studio">MpRodney-Studio</div>
+    <div class="logo"></div>
+    <div class="studio-title">MpRodney-Studio</div>
     <p>Game Developer • Web Developer • Designer</p>
 </header>
 
@@ -200,34 +199,24 @@ footer {
 
 <div class="grid">
 
-    <div class="card">
-        <img src="design_concept_1.png">
-        <p>Design Concept 1</p>
-    </div>
-
-    <div class="card">
-        <img src="design_concept_2.png">
-        <p>Design Concept 2</p>
-    </div>
-
-    <div class="card">
+    <div class="card" onclick="openModal('flipcard_1.png','Flipcard Scene 1')">
         <img src="flipcard_1.png">
-        <p>Flipcard 1</p>
+        <p>Flipcard Scene 1</p>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="openModal('flipcard_2.png','Flipcard Scene 2')">
         <img src="flipcard_2.png">
-        <p>Flipcard 2</p>
+        <p>Flipcard Scene 2</p>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="openModal('flipcard_3.png','Flipcard Scene 3')">
         <img src="flipcard_3.png">
-        <p>Flipcard 3</p>
+        <p>Flipcard Scene 3</p>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="openModal('flipcard_4.png','Flipcard Scene 4')">
         <img src="flipcard_4.png">
-        <p>Flipcard 4</p>
+        <p>Flipcard Scene 4</p>
     </div>
 
 </div>
@@ -237,77 +226,74 @@ footer {
 
 <div class="grid">
 
-    <div class="card">
+    <div class="card" onclick="openModal('tictactoe_1.png','TicTacToe UI 1')">
         <img src="tictactoe_1.png">
-        <p>TicTacToe Design 1</p>
+        <p>UI Design 1</p>
     </div>
 
-    <div class="card">
+    <div class="card" onclick="openModal('tictactoe_2.png','TicTacToe UI 2')">
         <img src="tictactoe_2.png">
-        <p>TicTacToe Design 2</p>
+        <p>UI Design 2</p>
     </div>
 
 </div>
 
 <!-- CONTACT -->
-<h2>Contact</h2>
+<h2>Contact Studio</h2>
 
 <div class="contact">
-    <p><b>Phone:</b> +26778785121 / 71276148</p>
-    <p><b>Email:</b> mpedinyanerodney53@gmail.com</p>
-    <p><b>Location:</b> Gaborone</p>
+<p>📞 +26778785121 / 71276148</p>
+<p>📧 mpedinyanerodney53@gmail.com</p>
+<p>📍 Gaborone</p>
 </div>
 
-<!-- FORM -->
-<h2>Book Appointment / Send Idea</h2>
+<!-- FORM (EMAIL SEND) -->
+<h2>Send Message</h2>
 
-<form>
-    <input type="text" placeholder="Your Name">
-    <input type="email" placeholder="Your Email">
-    <textarea rows="5" placeholder="Your message"></textarea>
-    <button type="submit">Send</button>
+<form onsubmit="sendMail(); return false;">
+    <input id="name" placeholder="Your Name">
+    <input id="email" placeholder="Your Email">
+    <textarea id="msg" placeholder="Your Message"></textarea>
+    <button type="submit">Send to Email</button>
 </form>
 
 </div>
 
-<footer>
-© 2026 MpRodney-Studio
-</footer>
+<!-- FOOTER -->
+<footer>© 2026 MpRodney-Studio</footer>
 
-<!-- MATRIX BACKGROUND SCRIPT -->
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">X</span>
+        <img id="modalImg">
+        <p id="modalText"></p>
+    </div>
+</div>
+
 <script>
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let chars = "01MpRodneyStudioGameDev";
-chars = chars.split("");
-
-let fontSize = 14;
-let columns = canvas.width / fontSize;
-let drops = Array(Math.floor(columns)).fill(1);
-
-function draw() {
-    ctx.fillStyle = "rgba(2,6,23,0.15)";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-
-    ctx.fillStyle = "#38bdf8";
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-        let text = chars[Math.floor(Math.random()*chars.length)];
-        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-
-        if (drops[i]*fontSize > canvas.height && Math.random()>0.975)
-            drops[i] = 0;
-
-        drops[i]++;
-    }
+/* OPEN PREVIEW */
+function openModal(img,text){
+    document.getElementById("modal").style.display="flex";
+    document.getElementById("modalImg").src=img;
+    document.getElementById("modalText").innerText=text;
 }
 
-setInterval(draw, 35);
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+
+/* EMAIL FUNCTION */
+function sendMail(){
+    let name=document.getElementById("name").value;
+    let email=document.getElementById("email").value;
+    let msg=document.getElementById("msg").value;
+
+    window.location.href =
+    `mailto:mpedinyanerodney53@gmail.com?subject=Portfolio Message from ${name}&body=${msg} (Sender: ${email})`;
+}
+
 </script>
 
 </body>

@@ -1,95 +1,80 @@
-// =========================
-// MPRODNEY-STUDIO SAFE SCRIPT (FIXED)
-// =========================
-
-// NAVBAR SHADOW ON SCROLL
-window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
-    if (!navbar) return;
-
-    navbar.style.boxShadow =
-        window.scrollY > 50
-        ? "0 8px 25px rgba(0,0,0,0.12)"
-        : "0 2px 20px rgba(0,0,0,0.08)";
+window.addEventListener("scroll",()=>{
+    const nav=document.querySelector(".navbar");
+    if(nav){
+        nav.style.boxShadow=window.scrollY>50
+        ? "0 10px 30px rgba(0,0,0,0.3)"
+        : "none";
+    }
 });
 
-// =========================
-// HERO ANIMATION (SAFE CHECK)
-// =========================
-window.addEventListener("load", () => {
+/* ================= SECTION REVEAL ================= */
 
-    const heroTitle = document.querySelector(".hero h1");
-    const heroSubtitle = document.querySelector(".hero h2");
-    const heroText = document.querySelector(".hero p");
-
-    if (!heroTitle || !heroSubtitle || !heroText) return;
-
-    heroTitle.style.opacity = "0";
-    heroSubtitle.style.opacity = "0";
-    heroText.style.opacity = "0";
-
-    setTimeout(() => {
-        heroTitle.style.transition = "1s";
-        heroTitle.style.opacity = "1";
-    }, 300);
-
-    setTimeout(() => {
-        heroSubtitle.style.transition = "1s";
-        heroSubtitle.style.opacity = "1";
-    }, 700);
-
-    setTimeout(() => {
-        heroText.style.transition = "1s";
-        heroText.style.opacity = "1";
-    }, 1100);
-});
-
-// =========================
-// FLOATING ORBS (FIXED CSS DEPENDENCY)
-// =========================
-function createOrb() {
-    const orb = document.createElement("div");
-    orb.classList.add("orb");
-
-    document.body.appendChild(orb);
-
-    const size = Math.random() * 120 + 40;
-
-    orb.style.width = size + "px";
-    orb.style.height = size + "px";
-
-    orb.style.left = Math.random() * window.innerWidth + "px";
-    orb.style.top = Math.random() * window.innerHeight + "px";
-
-    setTimeout(() => orb.remove(), 12000);
-}
-
-setInterval(createOrb, 3000);
-
-// =========================
-// SECTION REVEAL (SAFE)
-// =========================
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+        if(e.isIntersecting){
+            e.target.classList.add("show");
         }
     });
 });
 
-document.querySelectorAll(".section").forEach(section => {
-    observer.observe(section);
+document.querySelectorAll(".section")
+.forEach(s=>observer.observe(s));
+
+/* ================= FLOATING ORBS ================= */
+
+function orb(){
+    const o=document.createElement("div");
+    o.className="orb";
+    document.body.appendChild(o);
+
+    const size=Math.random()*120+40;
+    o.style.width=size+"px";
+    o.style.height=size+"px";
+    o.style.left=Math.random()*window.innerWidth+"px";
+    o.style.top="100vh";
+
+    setTimeout(()=>o.remove(),14000);
+}
+
+setInterval(orb,2500);
+
+/* ================= STUDIO TYPE TEXT ================= */
+
+const text="Building Games, Websites & Digital Solutions";
+let i=0;
+
+window.addEventListener("load",()=>{
+    const el=document.querySelector(".hero h2");
+    if(!el)return;
+
+    el.innerHTML="";
+
+    function type(){
+        if(i<text.length){
+            el.innerHTML+=text.charAt(i);
+            i++;
+            setTimeout(type,45);
+        }
+    }
+
+    setTimeout(type,800);
 });
 
-// =========================
-// PROJECT CARD EFFECT (SAFE)
-// =========================
-document.querySelectorAll(".project-card").forEach(card => {
-    card.addEventListener("mouseenter", () => {
-        card.style.transform = "translateY(-10px) scale(1.03)";
-    });
+/* ================= RIPPLE ================= */
 
-    card.addEventListener("mouseleave", () => {
-        card.style.transform = "translateY(0px) scale(1)";
+document.querySelectorAll("a").forEach(a=>{
+    a.addEventListener("click",function(e){
+
+        const r=document.createElement("span");
+        r.classList.add("ripple");
+        this.appendChild(r);
+
+        const x=e.clientX-this.offsetLeft;
+        const y=e.clientY-this.offsetTop;
+
+        r.style.left=x+"px";
+        r.style.top=y+"px";
+
+        setTimeout(()=>r.remove(),700);
     });
 });

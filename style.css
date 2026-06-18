@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 *{
     margin:0;
     padding:0;
@@ -6,9 +8,22 @@
 }
 
 body{
-    font-family:"Segoe UI", sans-serif;
+    font-family:'Inter', sans-serif;
     background:#ffffff;
-    color:#222;
+    color:#1a1a1a;
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND DEPTH ================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at top left, rgba(22,119,255,0.08), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(255,79,216,0.08), transparent 40%);
+    z-index:-1;
 }
 
 /* ================= NAVBAR ================= */
@@ -18,14 +33,14 @@ body{
     top:0;
     left:0;
     width:100%;
-    background:rgba(255,255,255,0.95);
-    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(18px);
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:18px 8%;
     z-index:1000;
-    box-shadow:0 2px 20px rgba(0,0,0,0.08);
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
 .nav-logo{
@@ -35,8 +50,8 @@ body{
 }
 
 .nav-logo img{
-    width:50px;
-    height:50px;
+    width:46px;
+    height:46px;
     border-radius:50%;
 }
 
@@ -49,13 +64,13 @@ body{
 .nav-links{
     display:flex;
     list-style:none;
-    gap:30px;
+    gap:28px;
 }
 
 .nav-links a{
     text-decoration:none;
     color:#333;
-    font-weight:600;
+    font-weight:500;
     transition:0.3s;
 }
 
@@ -63,74 +78,72 @@ body{
     color:#1677ff;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (CINEMATIC) ================= */
 
 .hero{
     min-height:100vh;
-    background:
-    linear-gradient(
-        rgba(255,255,255,0.55),
-        rgba(255,255,255,0.75)
-    ),
-    url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920");
-
-    background-size:cover;
-    background-position:center;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     text-align:center;
-    padding:120px 20px 80px;
+    padding:140px 20px 80px;
+    background:
+    linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.9)),
+    url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920");
+    background-size:cover;
+    background-position:center;
 }
 
 .hero-content{
-    max-width:850px;
+    max-width:900px;
 }
 
 .hero h1{
-    font-size:4rem;
+    font-size:4.5rem;
+    font-weight:800;
     background:linear-gradient(90deg,#1677ff,#ff4fd8);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
 .hero h2{
-    margin-top:20px;
     font-size:1.6rem;
-    font-weight:600;
+    margin-top:20px;
+    font-weight:500;
+    color:#333;
 }
 
 .hero p{
     margin-top:20px;
     font-size:1.1rem;
     line-height:1.8;
+    color:#555;
 }
 
 /* ================= BUTTONS ================= */
 
 .hero-buttons{
-    margin-top:30px;
+    margin-top:35px;
     display:flex;
     justify-content:center;
-    gap:20px;
+    gap:18px;
 }
 
 .btn-primary,
 .btn-secondary{
-    padding:14px 28px;
+    padding:14px 30px;
     border-radius:50px;
     font-weight:600;
     text-decoration:none;
-    display:inline-block;
     position:relative;
     overflow:hidden;
+    transition:0.4s ease;
 }
 
 .btn-primary{
     background:#1677ff;
     color:white;
+    box-shadow:0 10px 25px rgba(22,119,255,0.25);
 }
 
 .btn-secondary{
@@ -138,13 +151,19 @@ body{
     color:#1677ff;
 }
 
+.btn-primary:hover,
+.btn-secondary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
 /* ================= SECTIONS ================= */
 
 .section{
-    padding:100px 8%;
+    padding:110px 8%;
     opacity:0;
-    transform:translateY(40px);
-    transition:0.8s ease;
+    transform:translateY(60px);
+    transition:1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .section.show{
@@ -158,7 +177,8 @@ body{
 }
 
 h2{
-    font-size:2.5rem;
+    font-size:2.6rem;
+    font-weight:700;
     margin-bottom:40px;
     color:#1677ff;
 }
@@ -168,40 +188,44 @@ h2{
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+    gap:26px;
 }
 
 .card,
 .project-card{
-    background:white;
-    padding:25px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    transition:0.3s;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    padding:28px;
+    border-radius:22px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.08);
+    transition:0.4s ease;
+    border:1px solid rgba(255,255,255,0.4);
 }
 
 .card:hover,
 .project-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-10px) scale(1.02);
 }
 
 /* ================= DEVELOPER BOX ================= */
 
 .developer-box{
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    padding:45px;
+    border-radius:22px;
     text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.08);
 }
 
 /* ================= CONTACT BOX ================= */
 
 .contact-box{
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    padding:35px;
+    border-radius:22px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.08);
     line-height:2;
 }
 
@@ -209,26 +233,26 @@ h2{
 
 footer{
     text-align:center;
-    padding:60px 20px;
+    padding:70px 20px;
     background:#0f172a;
     color:white;
-    margin-top:80px;
+    margin-top:100px;
 }
 
 /* ================= ORBS ================= */
 
 .orb{
     position:fixed;
-    background:radial-gradient(circle, rgba(22,119,255,0.25), transparent);
     border-radius:50%;
     pointer-events:none;
+    background:radial-gradient(circle, rgba(22,119,255,0.25), transparent);
     animation:floatUp 12s linear forwards;
     z-index:0;
 }
 
 @keyframes floatUp{
     from{transform:translateY(0);opacity:0.6;}
-    to{transform:translateY(-800px);opacity:0;}
+    to{transform:translateY(-900px);opacity:0;}
 }
 
 /* ================= RIPPLE ================= */
@@ -240,7 +264,7 @@ footer{
     background:rgba(255,255,255,0.6);
     border-radius:50%;
     transform:scale(0);
-    animation:rippleEffect 0.7s linear;
+    animation:rippleEffect 0.7s ease;
 }
 
 @keyframes rippleEffect{

@@ -87,10 +87,17 @@ border-radius:50px;
 font-size:1rem;
 font-weight:bold;
 cursor:pointer;
+width:100%;
 }
 
 .submit-btn:hover{
 opacity:0.9;
+}
+
+.note{
+font-size:0.9rem;
+color:#666;
+margin-top:10px;
 }
 
 </style>
@@ -120,7 +127,7 @@ opacity:0.9;
 <h1>Contact MpRodney-Studio</h1>
 
 <p>
-Let's discuss your next website, software,
+Let’s discuss your next website, software,
 mobile app or game development project.
 </p>
 
@@ -130,6 +137,7 @@ mobile app or game development project.
 
 <div class="contact-grid">
 
+<!-- INFO SECTION -->
 <div class="contact-info">
 
 <h2>Studio Information</h2>
@@ -142,7 +150,9 @@ mobile app or game development project.
 
 <p>
 📧 <strong>Email:</strong><br>
+<a href="mailto:mpedinyanerodney53@gmail.com">
 mpedinyanerodney53@gmail.com
+</a>
 </p>
 
 <p>
@@ -161,50 +171,32 @@ UI/UX Design
 
 </div>
 
+<!-- CONTACT FORM (MAILTO METHOD) -->
 <div class="contact-form">
 
 <h2>Send Project Inquiry</h2>
 
-<!-- Replace YOUR_FORM_ID below with Formspree ID later -->
+<form id="contactForm">
 
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<input type="text" id="name" placeholder="Your Name" required>
 
-<input
-type="text"
-name="name"
-placeholder="Your Name"
-required>
+<input type="email" id="email" placeholder="Your Email" required>
 
-<input
-type="email"
-name="email"
-placeholder="Your Email"
-required>
+<input type="text" id="company" placeholder="Company / Organization">
 
-<input
-type="text"
-name="company"
-placeholder="Company / Organization">
+<input type="text" id="service" placeholder="Required Service">
 
-<input
-type="text"
-name="service"
-placeholder="Required Service">
+<textarea id="message" placeholder="Describe your project..." required></textarea>
 
-<textarea
-name="message"
-placeholder="Describe your project..."
-required></textarea>
-
-<button
-type="submit"
-class="submit-btn">
-
+<button type="submit" class="submit-btn">
 Send Message
-
 </button>
 
 </form>
+
+<p class="note">
+⚡ This will open your email app and send directly to my inbox.
+</p>
 
 </div>
 
@@ -223,8 +215,7 @@ Building Games, Websites & Digital Solutions
 <br>
 
 <p>
-Founder & Lead Developer:
-Rodney Mpedinyane
+Founder & Lead Developer: Rodney Mpedinyane
 </p>
 
 <br>
@@ -235,7 +226,31 @@ Rodney Mpedinyane
 
 </footer>
 
-<script src="script.js"></script>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const company = document.getElementById("company").value;
+const service = document.getElementById("service").value;
+const message = document.getElementById("message").value;
+
+const subject = `New Project Inquiry from ${name}`;
+const body = `
+Name: ${name}
+Email: ${email}
+Company: ${company}
+Service Needed: ${service}
+
+Message:
+${message}
+`;
+
+window.location.href =
+`mailto:mpedinyanerodney53@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+</script>
 
 </body>
 </html>

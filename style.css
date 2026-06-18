@@ -236,3 +236,79 @@ footer{
         opacity:0;
     }
 }
+
+/* ========================================= */
+/* TEXT VISIBILITY FIXES */
+/* ========================================= */
+
+p{
+    color:#d6d6d6;
+    line-height:1.8;
+}
+
+h1,h2,h3,h4{
+    color:white;
+}
+
+.contact-info,
+.feature-box,
+.profile-card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:30px;
+}
+
+.contact-info p,
+.contact-box p,
+.profile-card p,
+.project-description,
+.feature-box p,
+.feature-box li{
+    color:#d6d6d6;
+}
+
+.feature-box h3,
+.contact-info h2,
+.contact-box h2,
+.profile-card h2{
+    color:#4da3ff;
+}
+
+.project-title{
+    color:#4da3ff;
+}
+
+.gallery img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.feature-box ul{
+    padding-left:20px;
+}
+
+.feature-box li{
+    margin-bottom:10px;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.8rem;
+}
+
+.hero h2{
+    font-size:1.2rem;
+}
+
+.nav-links{
+    gap:12px;
+}
+
+}

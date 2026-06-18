@@ -10,94 +10,112 @@
 
 <style>
 
+/* ================= HERO ================= */
+
 .contact-hero{
-padding:180px 20px 100px;
-background:linear-gradient(135deg,#1677ff,#ff4fd8);
-color:white;
-text-align:center;
+    padding:180px 20px 100px;
+    background:linear-gradient(135deg,#1677ff,#ff4fd8);
+    color:white;
+    text-align:center;
 }
 
 .contact-hero h1{
-font-size:4rem;
-margin-bottom:20px;
+    font-size:4rem;
+    margin-bottom:20px;
 }
 
+/* ================= CONTAINER ================= */
+
 .contact-container{
-max-width:1200px;
-margin:auto;
-padding:80px 8%;
+    max-width:1200px;
+    margin:auto;
+    padding:80px 8%;
 }
 
 .contact-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-gap:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:40px;
 }
 
+/* ================= INFO BOX ================= */
+
 .contact-info{
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
 .contact-info h2{
-color:#1677ff;
-margin-bottom:20px;
+    color:#1677ff;
+    margin-bottom:20px;
 }
 
 .contact-info p{
-margin:15px 0;
-line-height:1.8;
+    margin:15px 0;
+    line-height:1.8;
 }
 
-.contact-form{
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+/* ================= CONTACT BOX ================= */
+
+.contact-box{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
-.contact-form h2{
-color:#1677ff;
-margin-bottom:20px;
+.contact-box h2{
+    color:#1677ff;
+    margin-bottom:20px;
 }
 
-.contact-form input,
-.contact-form textarea{
-width:100%;
-padding:15px;
-margin-bottom:15px;
-border:1px solid #ddd;
-border-radius:10px;
-font-size:1rem;
+/* ================= BUTTONS ================= */
+
+.contact-btns{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:20px;
 }
 
-.contact-form textarea{
-height:180px;
-resize:vertical;
+.btn-email,
+.btn-whatsapp{
+    display:block;
+    text-align:center;
+    padding:15px;
+    border-radius:50px;
+    font-weight:bold;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
 }
 
-.submit-btn{
-background:#1677ff;
-color:white;
-border:none;
-padding:15px 30px;
-border-radius:50px;
-font-size:1rem;
-font-weight:bold;
-cursor:pointer;
-width:100%;
+.btn-email{
+    background:#1677ff;
 }
 
-.submit-btn:hover{
-opacity:0.9;
+.btn-email:hover{
+    opacity:0.85;
 }
 
-.note{
-font-size:0.9rem;
-color:#666;
-margin-top:10px;
+.btn-whatsapp{
+    background:#25D366;
+}
+
+.btn-whatsapp:hover{
+    opacity:0.85;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:60px 20px;
+    background:#0f172a;
+    color:white;
+    margin-top:80px;
 }
 
 </style>
@@ -106,6 +124,7 @@ margin-top:10px;
 
 <body>
 
+<!-- ================= NAVBAR ================= -->
 <nav class="navbar">
 
 <div class="nav-logo">
@@ -122,81 +141,65 @@ margin-top:10px;
 
 </nav>
 
+<!-- ================= HERO ================= -->
 <section class="contact-hero">
 
 <h1>Contact MpRodney-Studio</h1>
 
 <p>
-Let’s discuss your next website, software,
-mobile app or game development project.
+Let’s build your website, software, app or game together.
 </p>
 
 </section>
 
+<!-- ================= CONTACT SECTION ================= -->
 <div class="contact-container">
 
 <div class="contact-grid">
 
-<!-- INFO SECTION -->
+<!-- INFO -->
 <div class="contact-info">
 
 <h2>Studio Information</h2>
 
-<p>
-📞 <strong>Phone:</strong><br>
-+267 78785121<br>
-+267 71276148
-</p>
+<p>📍 Gaborone, Botswana</p>
+
+<p>📞 +267 78785121</p>
+<p>📞 +267 71276148</p>
+
+<p>📧 mpedinyanerodney53@gmail.com</p>
 
 <p>
-📧 <strong>Email:</strong><br>
-<a href="mailto:mpedinyanerodney53@gmail.com">
-mpedinyanerodney53@gmail.com
+We respond to all project inquiries,
+business requests and collaborations.
+</p>
+
+</div>
+
+<!-- CONTACT ACTIONS -->
+<div class="contact-box">
+
+<h2>Get In Touch Instantly</h2>
+
+<p>
+Choose your preferred way to contact me:
+</p>
+
+<div class="contact-btns">
+
+<!-- EMAIL -->
+<a class="btn-email"
+href="mailto:mpedinyanerodney53@gmail.com?subject=Project%20Inquiry%20-%20MpRodney%20Studio&body=Hello%20MpRodney%20Studio,%0A%0AI%20would%20like%20to%20discuss%20a%20project.%0A%0AName:%0AProject%20Details:%0A%0AThank%20you.">
+
+📧 Send Email
 </a>
-</p>
 
-<p>
-📍 <strong>Location:</strong><br>
-Gaborone, Botswana
-</p>
+<!-- WHATSAPP -->
+<a class="btn-whatsapp"
+href="https://wa.me/26778785121?text=Hello%20MpRodney%20Studio,%20I%20want%20to%20discuss%20a%20project">
 
-<p>
-💻 <strong>Services:</strong><br>
-Website Development<br>
-Software Development<br>
-Mobile Applications<br>
-Game Development<br>
-UI/UX Design
-</p>
-
-</div>
-
-<!-- CONTACT FORM (MAILTO METHOD) -->
-<div class="contact-form">
-
-<h2>Send Project Inquiry</h2>
-
-<form id="contactForm">
-
-<input type="text" id="name" placeholder="Your Name" required>
-
-<input type="email" id="email" placeholder="Your Email" required>
-
-<input type="text" id="company" placeholder="Company / Organization">
-
-<input type="text" id="service" placeholder="Required Service">
-
-<textarea id="message" placeholder="Describe your project..." required></textarea>
-
-<button type="submit" class="submit-btn">
-Send Message
-</button>
-
-</form>
-
-<p class="note">
-⚡ This will open your email app and send directly to my inbox.
-</p>
+💬 Chat on WhatsApp
+</a>
 
 </div>
 
@@ -204,53 +207,20 @@ Send Message
 
 </div>
 
+</div>
+
+<!-- ================= FOOTER ================= -->
 <footer>
 
 <h3>MpRodney-Studio</h3>
 
-<p>
-Building Games, Websites & Digital Solutions
-</p>
+<p>Building Games, Websites & Digital Solutions</p>
 
 <br>
 
-<p>
-Founder & Lead Developer: Rodney Mpedinyane
-</p>
-
-<br>
-
-<p>
-© 2026 MpRodney-Studio
-</p>
+<p>© 2026 MpRodney-Studio</p>
 
 </footer>
-
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
-e.preventDefault();
-
-const name = document.getElementById("name").value;
-const email = document.getElementById("email").value;
-const company = document.getElementById("company").value;
-const service = document.getElementById("service").value;
-const message = document.getElementById("message").value;
-
-const subject = `New Project Inquiry from ${name}`;
-const body = `
-Name: ${name}
-Email: ${email}
-Company: ${company}
-Service Needed: ${service}
-
-Message:
-${message}
-`;
-
-window.location.href =
-`mailto:mpedinyanerodney53@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
-</script>
 
 </body>
 </html>

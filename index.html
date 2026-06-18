@@ -2,299 +2,215 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>MpRodney-Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MpRodney-Studio | Building Games, Websites & Digital Solutions</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0b1220;
-    color: white;
-    overflow-x: hidden;
-}
-
-/* ================= BACKGROUND OFFICE ================= */
-.office {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top, #0b1220, #020617);
-    z-index: -2;
-}
-
-/* floating light effect */
-.office::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(56,189,248,0.08), transparent 60%);
-    animation: float 8s infinite linear;
-}
-
-@keyframes float {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(-100px,50px); }
-    100% { transform: translate(0,0); }
-}
-
-/* ================= HEADER ================= */
-header {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-/* 3D STUDIO TEXT */
-.studio-title {
-    font-size: 45px;
-    font-weight: bold;
-    color: #38bdf8;
-    text-shadow: 1px 1px 0 #0ea5e9,
-                 2px 2px 0 #0284c7,
-                 3px 3px 10px rgba(0,0,0,0.5);
-    transform: perspective(500px) rotateX(10deg);
-}
-
-/* LOGO */
-.logo {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: url('https://cdn-icons-png.flaticon.com/512/1055/1055687.png');
-    background-size: cover;
-    margin: auto;
-    border: 3px solid #38bdf8;
-}
-
-/* ================= LAYOUT ================= */
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-}
-
-h2 {
-    border-left: 5px solid #38bdf8;
-    padding-left: 10px;
-    margin-top: 40px;
-}
-
-/* ================= PROJECT GRID ================= */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-}
-
-.card {
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    border-color: #38bdf8;
-}
-
-.card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-}
-
-.card p {
-    padding: 10px;
-    color: #cbd5e1;
-}
-
-/* ================= MODAL PREVIEW ================= */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-}
-
-.modal-content {
-    background: #111827;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
-}
-
-.modal img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.close {
-    float: right;
-    cursor: pointer;
-    color: red;
-}
-
-/* ================= CONTACT ================= */
-.contact {
-    background: rgba(255,255,255,0.05);
-    padding: 15px;
-    border-radius: 10px;
-}
-
-/* ================= FORM ================= */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-input, textarea {
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-}
-
-button {
-    padding: 12px;
-    background: #38bdf8;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* ================= FOOTER ================= */
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #64748b;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- BACKGROUND -->
-<div class="office"></div>
-
-<header>
-    <div class="logo"></div>
-    <div class="studio-title">MpRodney-Studio</div>
-    <p>Game Developer • Web Developer • Designer</p>
-</header>
-
-<div class="container">
-
-<!-- GAME 1 -->
-<h2>Mpex Flip Cards 2D</h2>
-
-<div class="grid">
-
-    <div class="card" onclick="openModal('flipcard_1.png','Flipcard Scene 1')">
-        <img src="flipcard_1.png">
-        <p>Flipcard Scene 1</p>
+<nav class="navbar">
+    <div class="nav-logo">
+        <img src="logo_1.png" alt="MpRodney Studio Logo">
+        <span>MpRodney-Studio</span>
     </div>
 
-    <div class="card" onclick="openModal('flipcard_2.png','Flipcard Scene 2')">
-        <img src="flipcard_2.png">
-        <p>Flipcard Scene 2</p>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#developer">Developer</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="home" class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <h1>MpRodney-Studio</h1>
+
+        <h2>Building Games, Websites & Digital Solutions</h2>
+
+        <p>
+            Transforming ideas into powerful digital experiences through
+            software development, web development and game creation.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn-primary">
+                View Studio Projects
+            </a>
+
+            <a href="#contact" class="btn-secondary">
+                Hire Developer
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="card" onclick="openModal('flipcard_3.png','Flipcard Scene 3')">
-        <img src="flipcard_3.png">
-        <p>Flipcard Scene 3</p>
+</section>
+
+<section id="about" class="section">
+
+    <div class="container">
+
+        <h2>Who We Are</h2>
+
+        <p>
+            MpRodney-Studio is an independent software development studio
+            founded by Rodney Mpedinyane.
+
+            We build websites, software solutions, mobile applications,
+            digital systems and interactive gaming experiences for
+            businesses and individuals.
+        </p>
+
     </div>
 
-    <div class="card" onclick="openModal('flipcard_4.png','Flipcard Scene 4')">
-        <img src="flipcard_4.png">
-        <p>Flipcard Scene 4</p>
+</section>
+
+<section id="services" class="section">
+
+    <div class="container">
+
+        <h2>Our Services</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>🌐 Website Development</h3>
+                <p>
+                    Modern responsive websites and web applications.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>⚙ Software Development</h3>
+                <p>
+                    Custom software solutions built around your needs.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📱 Mobile Apps</h3>
+                <p>
+                    Android applications and business tools.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🎮 Game Development</h3>
+                <p>
+                    Interactive 2D games and gameplay systems.
+                </p>
+            </div>
+
+        </div>
+
     </div>
 
-</div>
+</section>
 
-<!-- GAME 2 -->
-<h2>Arcade TicTacToe</h2>
+<section id="developer" class="section">
 
-<div class="grid">
+    <div class="container">
 
-    <div class="card" onclick="openModal('tictactoe_1.png','TicTacToe UI 1')">
-        <img src="tictactoe_1.png">
-        <p>UI Design 1</p>
+        <h2>Lead Developer</h2>
+
+        <div class="developer-box">
+
+            <h3>Rodney Mpedinyane</h3>
+
+            <p>
+                Rodney Mpedinyane is a software and game developer
+                specializing in web development, digital solutions,
+                and interactive gaming experiences.
+
+                He founded MpRodney-Studio to help businesses and
+                individuals bring innovative ideas to life through
+                technology.
+            </p>
+
+        </div>
+
     </div>
 
-    <div class="card" onclick="openModal('tictactoe_2.png','TicTacToe UI 2')">
-        <img src="tictactoe_2.png">
-        <p>UI Design 2</p>
+</section>
+
+<section id="projects" class="section">
+
+    <div class="container">
+
+        <h2>Studio Projects</h2>
+
+        <div class="cards">
+
+            <div class="project-card">
+
+                <h3>Mpex Flip Cards 2D</h3>
+
+                <p>
+                    Interactive memory matching game with custom
+                    gameplay systems and UI.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h3>Arcade TicTacToe</h3>
+
+                <p>
+                    Modern arcade-inspired TicTacToe experience
+                    with enhanced visuals.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
 
-</div>
+</section>
 
-<!-- CONTACT -->
-<h2>Contact Studio</h2>
+<section id="contact" class="section">
 
-<div class="contact">
-<p>📞 +26778785121 / 71276148</p>
-<p>📧 mpedinyanerodney53@gmail.com</p>
-<p>📍 Gaborone</p>
-</div>
+    <div class="container">
 
-<!-- FORM (EMAIL SEND) -->
-<h2>Send Message</h2>
+        <h2>Contact Studio</h2>
 
-<form onsubmit="sendMail(); return false;">
-    <input id="name" placeholder="Your Name">
-    <input id="email" placeholder="Your Email">
-    <textarea id="msg" placeholder="Your Message"></textarea>
-    <button type="submit">Send to Email</button>
-</form>
+        <div class="contact-box">
 
-</div>
+            <p>📞 +267 78785121 / 71276148</p>
 
-<!-- FOOTER -->
-<footer>© 2026 MpRodney-Studio</footer>
+            <p>📧 mpedinyanerodney53@gmail.com</p>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">X</span>
-        <img id="modalImg">
-        <p id="modalText"></p>
+            <p>📍 Gaborone, Botswana</p>
+
+        </div>
+
     </div>
-</div>
 
-<script>
+</section>
 
-/* OPEN PREVIEW */
-function openModal(img,text){
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("modalImg").src=img;
-    document.getElementById("modalText").innerText=text;
-}
+<footer>
 
-function closeModal(){
-    document.getElementById("modal").style.display="none";
-}
+    <h3>MpRodney-Studio</h3>
 
-/* EMAIL FUNCTION */
-function sendMail(){
-    let name=document.getElementById("name").value;
-    let email=document.getElementById("email").value;
-    let msg=document.getElementById("msg").value;
+    <p>
+        Building Games, Websites & Digital Solutions
+    </p>
 
-    window.location.href =
-    `mailto:mpedinyanerodney53@gmail.com?subject=Portfolio Message from ${name}&body=${msg} (Sender: ${email})`;
-}
+</footer>
 
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
